@@ -1,3 +1,3 @@
-# B-Bify
+# BnBify
 
 Hello world!
