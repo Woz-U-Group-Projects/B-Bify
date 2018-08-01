@@ -40,7 +40,9 @@ namespace BnBify
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            if (!env.IsDevelopment())
+                app.UseHttpsRedirection();
+            
             app.UseMvc();
         }
     }

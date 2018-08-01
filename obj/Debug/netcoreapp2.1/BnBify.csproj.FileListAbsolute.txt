@@ -1,0 +1,14 @@
+C:\Projects\BnBify\bin\Debug\netcoreapp2.1\BnBify.deps.json
+C:\Projects\BnBify\bin\Debug\netcoreapp2.1\BnBify.runtimeconfig.json
+C:\Projects\BnBify\bin\Debug\netcoreapp2.1\BnBify.runtimeconfig.dev.json
+C:\Projects\BnBify\bin\Debug\netcoreapp2.1\BnBify.dll
+C:\Projects\BnBify\bin\Debug\netcoreapp2.1\BnBify.pdb
+C:\Projects\BnBify\obj\Debug\netcoreapp2.1\BnBify.csprojAssemblyReference.cache
+C:\Projects\BnBify\obj\Debug\netcoreapp2.1\BnBify.csproj.CoreCompileInputs.cache
+C:\Projects\BnBify\obj\Debug\netcoreapp2.1\BnBify.RazorAssemblyInfo.cache
+C:\Projects\BnBify\obj\Debug\netcoreapp2.1\BnBify.RazorAssemblyInfo.cs
+C:\Projects\BnBify\obj\Debug\netcoreapp2.1\BnBify.AssemblyInfoInputs.cache
+C:\Projects\BnBify\obj\Debug\netcoreapp2.1\BnBify.AssemblyInfo.cs
+C:\Projects\BnBify\obj\Debug\netcoreapp2.1\BnBify.RazorTargetAssemblyInfo.cache
+C:\Projects\BnBify\obj\Debug\netcoreapp2.1\BnBify.dll
+C:\Projects\BnBify\obj\Debug\netcoreapp2.1\BnBify.pdb
