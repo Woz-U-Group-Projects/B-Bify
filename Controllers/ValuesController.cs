@@ -2,19 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BnBify.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BnBify.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ValuesController : Controller
     {
+        private readonly sakilaContext _context;
+
+        public ValuesController(sakilaContext context)
+        {
+            _context = context;
+        }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return base.Json(_context.Actor);
         }
 
         // GET api/values/5
