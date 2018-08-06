@@ -1,3 +1,0 @@
-# BnBify
-
-Hello world!
