@@ -50,7 +50,7 @@ namespace BnBify
             
             // Enabling CORS for "http://localhost:3000" (frontend)
             app.UseCors(builder =>
-            builder.WithOrigins("http://localhost:3000"));
+            builder.WithOrigins("http://localhost:8080"));
 
             app.UseMvc();
         }
