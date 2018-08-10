@@ -21,7 +21,8 @@ namespace BnBify.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return base.Json(_context.Actor);
+            return base.Json(new string[] { "reviews1", "reviews2" });
+            // return base.Json(_context.Actor);
         }
 
         // GET api/values/5
