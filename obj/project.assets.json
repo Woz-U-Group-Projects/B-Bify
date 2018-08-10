@@ -429,14 +429,14 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.CookiePolicy.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Cors/2.1.0-rc1-final": {
+      "Microsoft.AspNetCore.Cors/2.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Extensions": "2.1.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Abstractions": "2.1.0-rc1-final",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.0-rc1-final",
-          "Microsoft.Extensions.Logging.Abstractions": "2.1.0-rc1-final",
-          "Microsoft.Extensions.Options": "2.1.0-rc1-final"
+          "Microsoft.AspNetCore.Http.Extensions": "2.1.1",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.1.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.1",
+          "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
+          "Microsoft.Extensions.Options": "2.1.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Cors.dll": {}
@@ -644,11 +644,11 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Http.Abstractions/2.1.0-rc1-final": {
+      "Microsoft.AspNetCore.Http.Abstractions/2.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Features": "2.1.0-rc1-final",
-          "System.Text.Encodings.Web": "4.5.0-rc1"
+          "Microsoft.AspNetCore.Http.Features": "2.1.1",
+          "System.Text.Encodings.Web": "4.5.0"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {}
@@ -689,13 +689,13 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Common.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Http.Extensions/2.1.0-rc1-final": {
+      "Microsoft.AspNetCore.Http.Extensions/2.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Abstractions": "2.1.0-rc1-final",
-          "Microsoft.Extensions.FileProviders.Abstractions": "2.1.0-rc1-final",
-          "Microsoft.Net.Http.Headers": "2.1.0-rc1-final",
-          "System.Buffers": "4.5.0-rc1"
+          "Microsoft.AspNetCore.Http.Abstractions": "2.1.1",
+          "Microsoft.Extensions.FileProviders.Abstractions": "2.1.1",
+          "Microsoft.Net.Http.Headers": "2.1.1",
+          "System.Buffers": "4.5.0"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.Extensions.dll": {}
@@ -704,10 +704,10 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.Extensions.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Http.Features/2.1.0-rc1-final": {
+      "Microsoft.AspNetCore.Http.Features/2.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "2.1.0-rc1-final"
+          "Microsoft.Extensions.Primitives": "2.1.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {}
@@ -1984,10 +1984,10 @@
           "lib/netcoreapp2.0/Microsoft.Extensions.DiagnosticAdapter.dll": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/2.1.0-rc1-final": {
+      "Microsoft.Extensions.FileProviders.Abstractions/2.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "2.1.0-rc1-final"
+          "Microsoft.Extensions.Primitives": "2.1.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
@@ -2418,11 +2418,11 @@
           "lib/netstandard1.4/Microsoft.IdentityModel.Xml.dll": {}
         }
       },
-      "Microsoft.Net.Http.Headers/2.1.0-rc1-final": {
+      "Microsoft.Net.Http.Headers/2.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "2.1.0-rc1-final",
-          "System.Buffers": "4.5.0-rc1"
+          "Microsoft.Extensions.Primitives": "2.1.1",
+          "System.Buffers": "4.5.0"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {}
@@ -3076,7 +3076,7 @@
           "lib/netstandard1.6/System.AppContext.dll": {}
         }
       },
-      "System.Buffers/4.5.0-rc1": {
+      "System.Buffers/4.5.0": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.0/_._": {}
@@ -4421,7 +4421,7 @@
           "ref/netstandard1.3/System.Text.Encoding.Extensions.dll": {}
         }
       },
-      "System.Text.Encodings.Web/4.5.0-rc1": {
+      "System.Text.Encodings.Web/4.5.0": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
@@ -4914,15 +4914,15 @@
         "microsoft.aspnetcore.cookiepolicy.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Cors/2.1.0-rc1-final": {
-      "sha512": "J0UNRtymDDzOasiZvlQKRKBdTmfHjdjSEBKYUgyajB0fbmN3OtcdApPwc2/gj09H2o3feW63fPAQErgDXlmEsQ==",
+    "Microsoft.AspNetCore.Cors/2.1.1": {
+      "sha512": "ajz3/gjo4OYDFId5nJUrBAYJhKW3sJrK5+dLJ3ynTuVyGwY5me3QICukzMeADSKNV+JapSrPKLXIythHwDrQjA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.cors/2.1.0-rc1-final",
+      "path": "microsoft.aspnetcore.cors/2.1.1",
       "files": [
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cors.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cors.xml",
-        "microsoft.aspnetcore.cors.2.1.0-rc1-final.nupkg.sha512",
+        "microsoft.aspnetcore.cors.2.1.1.nupkg.sha512",
         "microsoft.aspnetcore.cors.nuspec"
       ]
     },
@@ -5096,15 +5096,15 @@
         "microsoft.aspnetcore.http.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http.Abstractions/2.1.0-rc1-final": {
-      "sha512": "LQJH1z6k7sxxER4AEpbrq5Cpi1N/fGMThCE57ET+L6teVtc70N+CeDLKrZJzmyYEbenkrcTDyx4pzg6GM5VKEw==",
+    "Microsoft.AspNetCore.Http.Abstractions/2.1.1": {
+      "sha512": "0TPQgjRy2xJ75GcK18vvrT6/zCtSAWUEBSskSJN/lY0zuvQx2or8lzwr0TdKyMNK8A8MLP4QMLPqL9NOAxe0yg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http.abstractions/2.1.0-rc1-final",
+      "path": "microsoft.aspnetcore.http.abstractions/2.1.1",
       "files": [
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.xml",
-        "microsoft.aspnetcore.http.abstractions.2.1.0-rc1-final.nupkg.sha512",
+        "microsoft.aspnetcore.http.abstractions.2.1.1.nupkg.sha512",
         "microsoft.aspnetcore.http.abstractions.nuspec"
       ]
     },
@@ -5134,27 +5134,27 @@
         "microsoft.aspnetcore.http.connections.common.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http.Extensions/2.1.0-rc1-final": {
-      "sha512": "kaZdlbFmZ0MCL4t+tX5X5uH3WdUbBKHi+Oeg4OQRHGAwczB6AKTNnwvOYhLhPeQTeVXZkwB0vUvR3RsrtH79Gw==",
+    "Microsoft.AspNetCore.Http.Extensions/2.1.1": {
+      "sha512": "0dgKLajNfwElW6fLElwjo+fEyfhXdSN74QeXhOUgPam5UIbU3EBQU/+xD83MnfprAiUPDWHqueTKuB8oa/cjNQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http.extensions/2.1.0-rc1-final",
+      "path": "microsoft.aspnetcore.http.extensions/2.1.1",
       "files": [
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Extensions.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Extensions.xml",
-        "microsoft.aspnetcore.http.extensions.2.1.0-rc1-final.nupkg.sha512",
+        "microsoft.aspnetcore.http.extensions.2.1.1.nupkg.sha512",
         "microsoft.aspnetcore.http.extensions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http.Features/2.1.0-rc1-final": {
-      "sha512": "u44WchKqlvgilTzD2O0Rm3FS4L0g6buQ+J6ShUpatui5PMjF6RRshqDqoQICBbP/elAcTgsERJ1/N6tPUWTfLg==",
+    "Microsoft.AspNetCore.Http.Features/2.1.1": {
+      "sha512": "cMnTXRH+8T7GLht6cXRCMmN1HaYfXti2WEUdXqMUuyJgi4oH9cmzW4nECSBkQjsCs5O06BphyDDDAsTW/zQmpg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http.features/2.1.0-rc1-final",
+      "path": "microsoft.aspnetcore.http.features/2.1.1",
       "files": [
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
-        "microsoft.aspnetcore.http.features.2.1.0-rc1-final.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.2.1.1.nupkg.sha512",
         "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
@@ -6362,15 +6362,15 @@
         "microsoft.extensions.diagnosticadapter.nuspec"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/2.1.0-rc1-final": {
-      "sha512": "Sk5B2tdO86jinoW3TRQTlde5svt7fRzKftiCa5lBIRHoYlfn2tdL2i2U2v+D2YmQUMNclPcwIGPUaZkPFEjX0Q==",
+    "Microsoft.Extensions.FileProviders.Abstractions/2.1.1": {
+      "sha512": "qOJP+VAlXDeMQSJ6iflW62bEsN3S1NJIPHmhKFA9L37yU+jce2wbwesA7sDe9WdJ8+SoKtLnHPUxvOyQrAcRCA==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.abstractions/2.1.0-rc1-final",
+      "path": "microsoft.extensions.fileproviders.abstractions/2.1.1",
       "files": [
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
-        "microsoft.extensions.fileproviders.abstractions.2.1.0-rc1-final.nupkg.sha512",
+        "microsoft.extensions.fileproviders.abstractions.2.1.1.nupkg.sha512",
         "microsoft.extensions.fileproviders.abstractions.nuspec"
       ]
     },
@@ -6761,15 +6761,15 @@
         "microsoft.identitymodel.xml.nuspec"
       ]
     },
-    "Microsoft.Net.Http.Headers/2.1.0-rc1-final": {
-      "sha512": "lR55j2P9mYj8OClYGTlaLeykFcKS5MGo3bL2a+PRn89yBz1/DQVr75rXv+5MH5T8N6ubSv7PvJyAmfpb0O3/pA==",
+    "Microsoft.Net.Http.Headers/2.1.1": {
+      "sha512": "tNh1YCfZ943/d3WSE6cD57O05rhvi3lmKgwoi3zFg4wc/O/oec5FNHZmBCRau4GfzRC5zS/CBdOAkRwbvtZSaQ==",
       "type": "package",
-      "path": "microsoft.net.http.headers/2.1.0-rc1-final",
+      "path": "microsoft.net.http.headers/2.1.1",
       "files": [
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll",
         "lib/netstandard2.0/Microsoft.Net.Http.Headers.xml",
-        "microsoft.net.http.headers.2.1.0-rc1-final.nupkg.sha512",
+        "microsoft.net.http.headers.2.1.1.nupkg.sha512",
         "microsoft.net.http.headers.nuspec"
       ]
     },
@@ -7942,10 +7942,10 @@
         "system.appcontext.nuspec"
       ]
     },
-    "System.Buffers/4.5.0-rc1": {
-      "sha512": "4y5TI/pffxHW8aFFcAVTNsnT0HvCJN3RwYbSbHtVXgnaDDQ9s54Z1aAqDKEkQYb+MWgfcnmeAITRRXeLflsdsw==",
+    "System.Buffers/4.5.0": {
+      "sha512": "xpHYjjtyTEpzMwtSQBWdVc3dPjLdQtvyUg6fBlBqcLl1r2Y7gDG/W/enAYOB98nG3oD3Q153Y2FBO8JDWd+0Xw==",
       "type": "package",
-      "path": "system.buffers/4.5.0-rc1",
+      "path": "system.buffers/4.5.0",
       "files": [
         ".signature.p7s",
         "LICENSE.TXT",
@@ -7964,7 +7964,7 @@
         "ref/netstandard2.0/System.Buffers.dll",
         "ref/netstandard2.0/System.Buffers.xml",
         "ref/uap10.0.16299/_._",
-        "system.buffers.4.5.0-rc1.nupkg.sha512",
+        "system.buffers.4.5.0.nupkg.sha512",
         "system.buffers.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -11593,10 +11593,10 @@
         "system.text.encoding.extensions.nuspec"
       ]
     },
-    "System.Text.Encodings.Web/4.5.0-rc1": {
-      "sha512": "ETjz7/b6DLsCLr9mqsmgUQ6BhBlRJ3cyjey/33bL9a4bqTtOyNtReLJmXBTOi1Fq3epeZ1Bx0qk4sLbpPqCyfQ==",
+    "System.Text.Encodings.Web/4.5.0": {
+      "sha512": "JF+wDdfFiRl3rz3dPMfR6aR568AW2J5CUMmhSflgHDz4zbVK4/00ax8UHnHyEMvblPewgNugjuA4oyoL8Pex2g==",
       "type": "package",
-      "path": "system.text.encodings.web/4.5.0-rc1",
+      "path": "system.text.encodings.web/4.5.0",
       "files": [
         ".signature.p7s",
         "LICENSE.TXT",
@@ -11605,7 +11605,7 @@
         "lib/netstandard1.0/System.Text.Encodings.Web.xml",
         "lib/netstandard2.0/System.Text.Encodings.Web.dll",
         "lib/netstandard2.0/System.Text.Encodings.Web.xml",
-        "system.text.encodings.web.4.5.0-rc1.nupkg.sha512",
+        "system.text.encodings.web.4.5.0.nupkg.sha512",
         "system.text.encodings.web.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -12306,6 +12306,10 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "Microsoft.AspNetCore.App >= 2.1.0-rc1-final",
+      "Microsoft.AspNetCore.Cors >= 2.1.1",
+      "Microsoft.AspNetCore.Http.Abstractions >= 2.1.1",
+      "Microsoft.AspNetCore.Http.Extensions >= 2.1.1",
+      "Microsoft.AspNetCore.Http.Features >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Language >= 2.1.1",
       "Microsoft.EntityFrameworkCore >= 2.1.1",
       "Microsoft.EntityFrameworkCore.Abstractions >= 2.1.1",
@@ -12321,6 +12325,7 @@
       "Microsoft.Extensions.Configuration.Binder >= 2.1.1",
       "Microsoft.Extensions.DependencyInjection >= 2.1.1",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 2.1.1",
+      "Microsoft.Extensions.FileProviders.Abstractions >= 2.1.1",
       "Microsoft.Extensions.Logging >= 2.1.1",
       "Microsoft.Extensions.Logging.Abstractions >= 2.1.1",
       "Microsoft.Extensions.Logging.Configuration >= 2.1.1",
@@ -12329,6 +12334,7 @@
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 2.1.1",
       "Microsoft.Extensions.Primitives >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0-rc1",
+      "Microsoft.Net.Http.Headers >= 2.1.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.1",
       "Pomelo.EntityFrameworkCore.MySql >= 2.1.1"
     ]
@@ -12340,11 +12346,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\BnBify\\BnBify.csproj",
+      "projectUniqueName": "C:\\Projects\\BandBify\\BnBify\\BnBify.csproj",
       "projectName": "BnBify",
-      "projectPath": "C:\\Projects\\BnBify\\BnBify.csproj",
+      "projectPath": "C:\\Projects\\BandBify\\BnBify\\BnBify.csproj",
       "packagesPath": "C:\\Users\\edwar\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\BnBify\\obj\\",
+      "outputPath": "C:\\Projects\\BandBify\\BnBify\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12379,6 +12385,22 @@
             "target": "Package",
             "version": "[2.1.0-rc1-final, )",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Cors": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
+          "Microsoft.AspNetCore.Http.Abstractions": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
+          "Microsoft.AspNetCore.Http.Extensions": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
+          "Microsoft.AspNetCore.Http.Features": {
+            "target": "Package",
+            "version": "[2.1.1, )"
           },
           "Microsoft.AspNetCore.Razor.Language": {
             "target": "Package",
@@ -12440,6 +12462,10 @@
             "target": "Package",
             "version": "[2.1.1, )"
           },
+          "Microsoft.Extensions.FileProviders.Abstractions": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
           "Microsoft.Extensions.Logging": {
             "target": "Package",
             "version": "[2.1.1, )"
@@ -12473,6 +12499,10 @@
             "version": "[2.1.0-rc1, )",
             "autoReferenced": true
           },
+          "Microsoft.Net.Http.Headers": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[2.1.1, )"
@@ -12491,6 +12521,46 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: Microsoft.AspNetCore.App 2.1.0-rc1-final requires Microsoft.AspNetCore.Cors (= 2.1.0-rc1-final) but version Microsoft.AspNetCore.Cors 2.1.1 was resolved.",
+      "libraryId": "Microsoft.AspNetCore.Cors",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: Microsoft.AspNetCore.App 2.1.0-rc1-final requires Microsoft.AspNetCore.Http.Abstractions (= 2.1.0-rc1-final) but version Microsoft.AspNetCore.Http.Abstractions 2.1.1 was resolved.",
+      "libraryId": "Microsoft.AspNetCore.Http.Abstractions",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: Microsoft.AspNetCore.App 2.1.0-rc1-final requires Microsoft.AspNetCore.Http.Extensions (= 2.1.0-rc1-final) but version Microsoft.AspNetCore.Http.Extensions 2.1.1 was resolved.",
+      "libraryId": "Microsoft.AspNetCore.Http.Extensions",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: Microsoft.AspNetCore.App 2.1.0-rc1-final requires Microsoft.AspNetCore.Http.Features (= 2.1.0-rc1-final) but version Microsoft.AspNetCore.Http.Features 2.1.1 was resolved.",
+      "libraryId": "Microsoft.AspNetCore.Http.Features",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
     {
       "code": "NU1608",
       "level": "Warning",
@@ -12635,6 +12705,16 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: Microsoft.AspNetCore.App 2.1.0-rc1-final requires Microsoft.Extensions.FileProviders.Abstractions (= 2.1.0-rc1-final) but version Microsoft.Extensions.FileProviders.Abstractions 2.1.1 was resolved.",
+      "libraryId": "Microsoft.Extensions.FileProviders.Abstractions",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
       "message": "Detected package version outside of dependency constraint: Microsoft.AspNetCore.App 2.1.0-rc1-final requires Microsoft.Extensions.Logging (= 2.1.0-rc1-final) but version Microsoft.Extensions.Logging 2.1.1 was resolved.",
       "libraryId": "Microsoft.Extensions.Logging",
       "targetGraphs": [
@@ -12697,6 +12777,16 @@
       "warningLevel": 1,
       "message": "Detected package version outside of dependency constraint: Microsoft.AspNetCore.App 2.1.0-rc1-final requires Microsoft.Extensions.Primitives (= 2.1.0-rc1-final) but version Microsoft.Extensions.Primitives 2.1.1 was resolved.",
       "libraryId": "Microsoft.Extensions.Primitives",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: Microsoft.AspNetCore.App 2.1.0-rc1-final requires Microsoft.Net.Http.Headers (= 2.1.0-rc1-final) but version Microsoft.Net.Http.Headers 2.1.1 was resolved.",
+      "libraryId": "Microsoft.Net.Http.Headers",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
       ]

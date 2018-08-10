@@ -31,16 +31,7 @@ namespace BnBify.Models
         public virtual DbSet<Rental> Rental { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<Store> Store { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("Server=localhost;User Id=root;Password=DolphinPass123;Database=sakila");
-            }
-        }
-
+  
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Actor>(entity =>
