@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,11 +9,11 @@ namespace BnBify.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : Controller
+    public class ReviewsController : Controller
     {
         private readonly sakilaContext _context;
 
-        public ValuesController(sakilaContext context)
+        public ReviewsController(sakilaContext context)
         {
             _context = context;
         }
