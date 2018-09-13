@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BnBify.Models
+namespace HR_Squared.Models
 {
     public partial class TblEmployee
     {

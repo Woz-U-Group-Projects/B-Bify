@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace BnBify.Models
+namespace HR_Squared.Models
 {
     public partial class HR_SquaredContext : DbContext
     {

@@ -1,0 +1,14 @@
+C:\Group Project\HR_Squared\BackEnd\bin\Debug\netcoreapp2.1\HR_Squared.deps.json
+C:\Group Project\HR_Squared\BackEnd\bin\Debug\netcoreapp2.1\HR_Squared.runtimeconfig.json
+C:\Group Project\HR_Squared\BackEnd\bin\Debug\netcoreapp2.1\HR_Squared.runtimeconfig.dev.json
+C:\Group Project\HR_Squared\BackEnd\bin\Debug\netcoreapp2.1\HR_Squared.dll
+C:\Group Project\HR_Squared\BackEnd\bin\Debug\netcoreapp2.1\HR_Squared.pdb
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\HR_Squared.csprojAssemblyReference.cache
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\HR_Squared.csproj.CoreCompileInputs.cache
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\HR_Squared.RazorAssemblyInfo.cache
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\HR_Squared.RazorAssemblyInfo.cs
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\HR_Squared.AssemblyInfoInputs.cache
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\HR_Squared.AssemblyInfo.cs
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\HR_Squared.RazorTargetAssemblyInfo.cache
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\HR_Squared.dll
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\HR_Squared.pdb

@@ -1,1 +1,1 @@
-# BnBify
+# HR_Squared

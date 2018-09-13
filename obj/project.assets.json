@@ -12356,9 +12356,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Group Project\\HR_Squared\\BackEnd\\BnBify.csproj",
-      "projectName": "BnBify",
-      "projectPath": "C:\\Group Project\\HR_Squared\\BackEnd\\BnBify.csproj",
+      "projectUniqueName": "C:\\Group Project\\HR_Squared\\BackEnd\\HR_Squared.csproj",
+      "projectName": "HR_Squared",
+      "projectPath": "C:\\Group Project\\HR_Squared\\BackEnd\\HR_Squared.csproj",
       "packagesPath": "C:\\Users\\edwar\\.nuget\\packages\\",
       "outputPath": "C:\\Group Project\\HR_Squared\\BackEnd\\obj\\",
       "projectStyle": "PackageReference",

@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BnBify.Models;
+using HR_Squared.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BnBify.Controllers
+namespace HR_Squared.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
