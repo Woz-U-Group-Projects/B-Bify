@@ -30,7 +30,6 @@ namespace HR_Squared
         {
             services.AddCors();    	
             services.AddDbContext<HR_SquaredContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Default")));
-            // services.AddDbContext<sakilaContext>(opt => opt.UseMySql(Configuration.GetConnectionString("Default")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

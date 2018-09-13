@@ -9,11 +9,11 @@ namespace HR_Squared.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GuestsController : Controller
+    public class EmployeesController : Controller
     {
         private readonly HR_SquaredContext _context;
 
-        public GuestsController(HR_SquaredContext context)
+        public EmployeesController(HR_SquaredContext context)
         {
             _context = context;
         }
