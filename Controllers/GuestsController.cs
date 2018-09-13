@@ -11,9 +11,9 @@ namespace BnBify.Controllers
     [ApiController]
     public class GuestsController : Controller
     {
-        private readonly sakilaContext _context;
+        private readonly HR_SquaredContext _context;
 
-        public GuestsController(sakilaContext context)
+        public GuestsController(HR_SquaredContext context)
         {
             _context = context;
         }
@@ -21,7 +21,7 @@ namespace BnBify.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return base.Json(_context.Actor);
+            return base.Json(_context.TblEmployee);
         }
 
         // GET api/values/5

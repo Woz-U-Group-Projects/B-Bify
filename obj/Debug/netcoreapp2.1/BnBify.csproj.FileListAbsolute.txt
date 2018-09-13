@@ -12,3 +12,17 @@ C:\Projects\BandBify\BnBify\obj\Debug\netcoreapp2.1\BnBify.AssemblyInfo.cs
 C:\Projects\BandBify\BnBify\obj\Debug\netcoreapp2.1\BnBify.RazorTargetAssemblyInfo.cache
 C:\Projects\BandBify\BnBify\obj\Debug\netcoreapp2.1\BnBify.dll
 C:\Projects\BandBify\BnBify\obj\Debug\netcoreapp2.1\BnBify.pdb
+C:\Group Project\HR_Squared\BackEnd\bin\Debug\netcoreapp2.1\BnBify.deps.json
+C:\Group Project\HR_Squared\BackEnd\bin\Debug\netcoreapp2.1\BnBify.runtimeconfig.json
+C:\Group Project\HR_Squared\BackEnd\bin\Debug\netcoreapp2.1\BnBify.runtimeconfig.dev.json
+C:\Group Project\HR_Squared\BackEnd\bin\Debug\netcoreapp2.1\BnBify.dll
+C:\Group Project\HR_Squared\BackEnd\bin\Debug\netcoreapp2.1\BnBify.pdb
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\BnBify.csprojAssemblyReference.cache
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\BnBify.csproj.CoreCompileInputs.cache
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\BnBify.RazorAssemblyInfo.cache
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\BnBify.RazorAssemblyInfo.cs
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\BnBify.AssemblyInfoInputs.cache
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\BnBify.AssemblyInfo.cs
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\BnBify.RazorTargetAssemblyInfo.cache
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\BnBify.dll
+C:\Group Project\HR_Squared\BackEnd\obj\Debug\netcoreapp2.1\BnBify.pdb

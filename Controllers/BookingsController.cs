@@ -11,9 +11,9 @@ namespace BnBify.Controllers
     [ApiController]
     public class BookingsController : Controller
     {
-        private readonly sakilaContext _context;
+        private readonly HR_SquaredContext _context;
 
-        public BookingsController(sakilaContext context)
+        public BookingsController(HR_SquaredContext context)
         {
             _context = context;
         }

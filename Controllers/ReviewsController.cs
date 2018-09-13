@@ -11,9 +11,9 @@ namespace BnBify.Controllers
     [ApiController]
     public class ReviewsController : Controller
     {
-        private readonly sakilaContext _context;
+        private readonly HR_SquaredContext _context;
 
-        public ReviewsController(sakilaContext context)
+        public ReviewsController(HR_SquaredContext context)
         {
             _context = context;
         }

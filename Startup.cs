@@ -28,8 +28,9 @@ namespace BnBify
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();    		
-            services.AddDbContext<sakilaContext>(opt => opt.UseMySql(Configuration.GetConnectionString("Default")));
+            services.AddCors();    	
+            services.AddDbContext<HR_SquaredContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Default")));
+            // services.AddDbContext<sakilaContext>(opt => opt.UseMySql(Configuration.GetConnectionString("Default")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -50,7 +51,9 @@ namespace BnBify
             
             // Enabling CORS for "http://localhost:8080" (frontend)
             app.UseCors(builder =>
-            builder.WithOrigins("http://localhost:8080"));
+            builder.WithOrigins("http://localhost:8080")
+                //    .AllowAnyHeader()
+            );
 
             app.UseMvc();
         }
