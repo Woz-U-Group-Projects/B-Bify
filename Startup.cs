@@ -51,7 +51,9 @@ namespace HR_Squared
             // Enabling CORS for "http://localhost:8080" (frontend)
             app.UseCors(builder =>
             builder.WithOrigins("http://localhost:8080")
-                //    .AllowAnyHeader()
+                   .AllowAnyHeader()
+                   .AllowAnyOrigin()
+                   .AllowAnyMethod()
             );
 
             app.UseMvc();

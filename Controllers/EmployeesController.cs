@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HR_Squared.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace HR_Squared.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeesController : Controller
@@ -21,7 +24,7 @@ namespace HR_Squared.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return base.Json(_context.TblEmployee);
+            return base.Json(_context.Employees);
         }
 
         // GET api/values/5
@@ -43,10 +46,27 @@ namespace HR_Squared.Controllers
         {
         }
 
-        // DELETE api/values/5
+        
+       
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            // var Result = "";
+            
+            var Match = _context.Employees.FirstOrDefault(employee => employee.EmployeeId == id);
+
+            // if (Match != null) {
+                _context.Employees.Remove(Match);
+                _context.SaveChanges();
+            //     Result = "Successfully Deleted the Employee";
+            // } else {
+            //     Result = "Unable to find the given Employee";
+            // }
+            
+            return Ok();
+            
         }
+        
     }
+    
 }

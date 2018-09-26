@@ -15,28 +15,25 @@ namespace HR_Squared.Models
         {
         }
 
-        public virtual DbSet<TblEmployee> TblEmployee { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        // public virtual DbSet<TblEmployee> TblEmployee { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-2K3OM4R\\SQLEXPRESS;Database=HR_Squared;Trusted_Connection=True;");
-            }
-        }
+//         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//         {
+//             if (!optionsBuilder.IsConfigured)
+//             {
+// #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//                 optionsBuilder.UseSqlServer("Server=DESKTOP-2K3OM4R\\SQLEXPRESS;Database=HR_Squared;Trusted_Connection=True;");
+//             }
+//         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TblEmployee>(entity =>
+            modelBuilder.Entity<Employee>(entity =>
             {
-                entity.HasKey(e => e.EmployeeId);
-
-                entity.ToTable("tblEmployee");
-
                 entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
-                entity.Property(e => e.City)
+                entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
@@ -46,16 +43,51 @@ namespace HR_Squared.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Gender)
-                    .IsRequired()
-                    .HasMaxLength(6)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Name)
+                entity.Property(e => e.Supervisor)
                     .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Phone)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+                    
             });
+
+            // modelBuilder.Entity<TblEmployee>(entity =>
+            // {
+            //     entity.HasKey(e => e.EmployeeId);
+
+            //     entity.ToTable("tblEmployee");
+
+            //     entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
+
+            //     entity.Property(e => e.City)
+            //         .IsRequired()
+            //         .HasMaxLength(20)
+            //         .IsUnicode(false);
+
+            //     entity.Property(e => e.Department)
+            //         .IsRequired()
+            //         .HasMaxLength(20)
+            //         .IsUnicode(false);
+
+            //     entity.Property(e => e.Gender)
+            //         .IsRequired()
+            //         .HasMaxLength(6)
+            //         .IsUnicode(false);
+
+            //     entity.Property(e => e.Name)
+            //         .IsRequired()
+            //         .HasMaxLength(20)
+            //         .IsUnicode(false);
+            // });
         }
     }
 }
