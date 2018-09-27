@@ -6,8 +6,6 @@ import '../css/index.css';
 import {AddEmployee} from '../components/addemployee';
 import {EditEmployee} from '../components/editemployee';
 
-console.log('top of Recipe.js');
-
 //create the main class for displaying the recipes
 export default class Employee extends React.Component {
   constructor(props) {
@@ -36,8 +34,6 @@ export default class Employee extends React.Component {
     fetch('http://localhost:5000/api/employees')
     .then(results => results.json())
     .then(results => this.setState({items : results}));
-    console.log('Test Point before JSON.stringify');
-    console.log(JSON.stringify(this.state.items));    
   }                  
 
   showAddModal() {//show the new Employee Detail modal
@@ -47,7 +43,7 @@ export default class Employee extends React.Component {
 
   showEditModal(index) {//show the edit Employee Modal
     console.log('Just got to show EditModal...Booyah!!')
-    this.setState({currentlyEditing: index, showEdit: !this.state.showEdit, editIndex: index});
+    this.setState({currentlyEditing: index, showEdit: !this.state.showEdit});
   }
 
   addEmployee(index) {//create a new Employee Record
@@ -89,9 +85,9 @@ export default class Employee extends React.Component {
       method: 'DELETE'
     });
   }
-  componentDidUpdate () {
-    console.log(this.state.rerenderEmployeeView);
-  }
+
+  // componentDidUpdate () {
+  // }
     
     // return <Redirect to='/recipe' />;
   
@@ -151,7 +147,7 @@ export default class Employee extends React.Component {
               </Panel.Body>
 
               <EditEmployee {...this.state} onShow={this.state.showEdit} onEdit={this.editEmployee} onEditModal={() => {this.showEditModal(currentlyEditing)}} currentlyEditing={currentlyEditing} employee={employees[currentlyEditing]} />
-
+              
             </Panel>
           ))}
 
@@ -166,12 +162,6 @@ export default class Employee extends React.Component {
   }
 };
 
-function mapStateToProps(state) {
-  const { connect } = state;
-  
-  return {
-      connect
-  };
-}
+
 
 

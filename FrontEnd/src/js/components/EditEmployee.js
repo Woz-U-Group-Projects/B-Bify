@@ -6,25 +6,25 @@ import {Modal,ControlLabel,FormGroup,FormControl,Button} from 'react-bootstrap';
 export class EditEmployee extends React.Component {
   constructor(props) {//create a state to handle the employee to be edited
     super(props);
+    this.state = {
+      employees: [],
+      items: [],
+      edits:[],
+      showAdd: false,
+      showEdit: false,
+      rerenderEmployeeView: false,
+      currentlyEditing: 0      
+    };
+
     this.state = {name: "", ingredients: ""};
     this.handleRecipeNameChange = this.handleRecipeNameChange.bind(this);
     this.handleRecipeIngredientsChange = this.handleRecipeIngredientsChange.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
-    console.log(this.props.items);
-  }
-  static getDerivedStateFromProps(props, state) {//make the recipe prop a state
-    const prevName = state.prevName;
-    const prevIngredients = state.prevIngredients;
-    const name = prevName !== props.recipe.name ? props.recipe.name : state.name;
-    const ingredients = prevIngredients !== props.recipe.ingredients.join(",") ? props.recipe.ingredients.join(",") : state.ingredients;
-    return {
-      prevName: props.recipe.name, name,
-      prevIngredients: props.recipe.ingredients.join(","), ingredients,
-    }
+    
   }
 
-  
+ 
 
   handleRecipeNameChange(e) {//change the name to reflect user input
     this.setState({name: e.target.value});
@@ -46,50 +46,68 @@ export class EditEmployee extends React.Component {
     this.setState({name: this.props.recipe.name, ingredients: this.props.recipe.ingredients.join(",")});
     onEditModal();
   }
+
+  saveEditToDatabase () {
+    console.log('made it to saveEditToDatabase')
+
+    let url = 'http://localhost:5000/api/employees/' + (items[index].employeeId);
+    
+    fetch(url, {
+      method: 'PUT'
+      body:
+    });
+  }
+
   render() {
+    const currentlyEditing = 1;
+    // const currentlyEditing = this.props.currentlyEditing;
     const onShow = this.props.onShow;
-    let editIndex = this.props.editIndex
-    var regex1 = /^\S/;
-    var regex2 = /^[^,\s]/;
-	  var regex3 = /[^,\s]$/;
-    const validRecipe = regex1.test(this.state.name) && regex2.test(this.state.ingredients) && regex3.test(this.state.ingredients);
+    // const edits = this.state.edits;
+    // var regex1 = /^\S/;
+    // var regex2 = /^[^,\s]/;
+	  // var regex3 = /[^,\s]$/;
+    // const validRecipe = regex1.test(this.state.name) && regex2.test(this.state.ingredients) && regex3.test(this.state.ingredients);
+
     return(
       <Modal show={onShow} onHide={this.handleCancel}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Employee</Modal.Title>
+          <Modal.Title>{this.props.items[currentlyEditing].name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
 
-          <FormGroup controlId="formControlsName">
-            {/* <ControlLabel>{this.props.items[editIndex].name}</ControlLabel> */}
-            {/* <FormControl {...props} type="text" required onChange={this.handleRecipeNameChange} value={this.state.name} placeholder={this.props.department} /> */}
-          </FormGroup>
-
-          <FormGroup controlId="formControlsName">
+          {/* <FormGroup controlId="formControlsName">
             <ControlLabel>Department:</ControlLabel>
-            {/* <FormControl type="text" required onChange={this.handleRecipeNameChange} value={this.state.name} placeholder={this.props.items[editIndex].department} /> */}
+            <FormControl type="text" required onChange={this.handleRecipeNameChange} value={this.state.edits[currentlyEditing].department} placeholder={this.props.items[currentlyEditing].department} />
           </FormGroup>
 
           <FormGroup controlId="formControlsName">
             <ControlLabel>Supervisor</ControlLabel>
-            <FormControl type="text" required onChange={this.handleRecipeNameChange} value={this.state.name} placeholder={this.props.items[0].supervisor} />
+            <FormControl type="text" required onChange={this.handleRecipeNameChange} value={this.state.edits[currentlyEditing].supervisor} placeholder={this.props.items[currentlyEditing].supervisor} />
           </FormGroup>
 
           <FormGroup controlId="formControlsName">
             <ControlLabel>Email</ControlLabel>
-            <FormControl type="text" required onChange={this.handleRecipeNameChange} value={this.state.name} placeholder={this.props.items[0].email} />
+            <FormControl type="text" required onChange={this.handleRecipeNameChange} value={this.state.edits[currentlyEditing].email} placeholder={this.props.items[currentlyEditing].email} />
           </FormGroup>
 
           <FormGroup controlId="formControlsName">
             <ControlLabel>Phone Ext:</ControlLabel>
-            <FormControl type="text" required onChange={this.handleRecipeNameChange} value={this.state.name} placeholder={this.props.items[0].phone} />
-          </FormGroup>
-
+            <FormControl type="text" required onChange={this.handleRecipeNameChange} value={this.state.edits[currentlyEditing].phone} placeholder={this.props.items[currentlyEditing].phone} />
+          </FormGroup> */}
+          
         </Modal.Body>
         <Modal.Footer>
-          <Button disabled={!validRecipe} bsStyle="success" onClick={this.handleEdit}>Save Recipe</Button>
+          {/* <Button disabled={!validRecipe} bsStyle="success" onClick={this.saveEditToDatabase}>Save</Button> */}
+          <Button bsStyle="success" onClick={this.saveEditToDatabase}>Save</Button>
+    
+    fetch(url, {
+      method: 'DELETE'
+    });
+    
         </Modal.Footer>
       </Modal>
     );
+    console.log('test');
   }
 };
