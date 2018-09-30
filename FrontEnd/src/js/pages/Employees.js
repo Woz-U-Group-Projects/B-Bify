@@ -7,7 +7,7 @@ import {AddEmployee} from '../components/addemployee';
 import {EditEmployee} from '../components/editemployee';
 
 //create the main class for displaying the recipes
-export default class Employee extends React.Component {
+export default class Employees extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,41 +37,24 @@ export default class Employee extends React.Component {
   }                  
 
   showAddModal() {//show the new Employee Detail modal
-    console.log('Welcome to "showAddModal method" Sir Edward the Great!!');
     this.setState({showAdd: !this.state.showAdd});
   }
 
   showEditModal(index) {//show the edit Employee Modal
-    console.log('Just got to show EditModal...Booyah!!')
     this.setState({currentlyEditing: index, showEdit: !this.state.showEdit});
   }
 
   addEmployee(index) {//create a new Employee Record
-    console.log('I see that you just pressed the "Add Employee" button');
     let items = this.state.items;
-    console.log(items[index].employeeId);
-    console.log(items.length);
+    
     // let url = 'http://localhost:5000/api/employees/' + (items[index].employeeId);
     // fetch(url, {
     //   method: 'POST'
     // });
-
-    // let recipes = this.state.recipes;
-    // recipes.push(recipe);
-    // localStorage.setItem('recipes', JSON.stringify(recipes));
-    // this.setState({recipes: recipes});
-    // this.showAddModal();
   }
 
-  editEmployee(newName, newIngredients, currentlyEditing) {//edit an existing recipe
-    let recipes = this.state.recipes;
-    // recipes[currentlyEditing] = {name: newName, ingredients: newIngredients};
-    localStorage.setItem('recipes', JSON.stringify(recipes));
-    
-    this.setState({recipes: recipes, editIndex: index});
+  editEmployee(currentlyEditing) {//edit an existing employee
     this.showEditModal(currentlyEditing);
-    console.log('editEmployee test console.log');
-    console.log(editIndex);
   }
 
   deleteEmployee(index) {//delete an existing Employee
@@ -80,25 +63,18 @@ export default class Employee extends React.Component {
     console.log(this.state.rerenderEmployeeView);
     console.log(items[index].employeeId);
     let url = 'http://localhost:5000/api/employees/' + (items[index].employeeId);
-    
     fetch(url, {
       method: 'DELETE'
     });
+
+    this.props.history.push('/bookings');
   }
 
-  // componentDidUpdate () {
-  // }
-    
-    // return <Redirect to='/recipe' />;
-  
-  
 
   // -----------------------------------------------------------------
       
 
   render() {
-
-    
     const employees = this.state.employees;
     const items = this.state.items;
     var currentlyEditing = this.state.currentlyEditing;
@@ -107,7 +83,6 @@ export default class Employee extends React.Component {
     if (rerenderEmployeeView === true) {
       <Redirect to='/bookings' />
     };
-
 
     return(
 
@@ -141,7 +116,6 @@ export default class Employee extends React.Component {
                   <ButtonToolbar>
                       <Button bsStyle="warning" onClick={() => {this.showEditModal(index)}}>Edit</Button>
                       <Button bsStyle="danger" onClick={() => {this.deleteEmployee(index)}}>Delete</Button>
-                      {/* <Button bsStyle="success" onClick={() => {this.saveEdit(index)}}>Save</Button> */}
                   </ButtonToolbar>
 
               </Panel.Body>
@@ -156,8 +130,9 @@ export default class Employee extends React.Component {
         <Button bsStyle="primary" onClick={this.showAddModal}>Add Employee</Button>
 
         <AddEmployee onShow={this.state.showAdd} onAdd={this.AddEmployee} onAddModal={this.showAddModal} />
+
       </div>
-      
+
     );    
   }
 };
