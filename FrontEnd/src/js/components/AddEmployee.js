@@ -2,61 +2,76 @@
 import React from 'react';
 import {Modal,ControlLabel,FormGroup,FormControl,Button} from 'react-bootstrap';
 
-//create a class for displaying the modal for adding a new recipe and export it
-export class AddEmployee extends React.Component {
-  constructor(props) {//create a state to handle the new recipe
+//create a class for displaying the modal for editing an existing employee and export it
+export class EditEmployee extends React.Component {
+  constructor(props) {//create a state to handle the employee to be edited
     super(props);
-    this.state = {name: "", ingredients: ""};
-    this.handleRecipeNameChange = this.handleRecipeNameChange.bind(this);
-    this.handleRecipeIngredientsChange = this.handleRecipeIngredientsChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-	this.handleCancel = this.handleCancel.bind(this);
+        
+    this.handleEmployeeHasBeenEdited = this.handleEmployeeHasBeenEdited.bind(this);
+    this.sendFetchOfEdits = this.sendFetchOfEdits.bind(this);
   }
-  handleRecipeNameChange(e) {//change the name to reflect user input
-    this.setState({name: e.target.value});
+
+  handleEmployeeHasBeenEdited(e) {  // change the name to reflect user input
+    this.setState({[e.target.name]: e.target.value});  // compile value from the input field
   }
-  handleRecipeIngredientsChange(e) {//change the ingredients to reflect user input
-    this.setState({ingredients: e.target.value});
+
+  sendFetchOfEdits()  {
+    console.log(this.props);
+    console.log(this.state);
+      
+    let url = 'http://localhost:5000/api/employees/' + (this.props.employee.employeeId);
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+      body: JSON.stringify(this.state)
+    })
+    .then(response => console.log('Success:', response))
+    .catch(error => console.error('Error:', error));
   }
-  handleSubmit(e) {//get the recipe data, manipulate it and call the function for creating a new recipe
-    e.preventDefault();
-    const onAdd = this.props.onAdd;
-    const regExp = /\s*,\s*/;
-    var newName = this.state.name;
-    var newIngredients = this.state.ingredients.split(regExp);
-    var newRecipe = {name: newName, ingredients: newIngredients};
-    onAdd(newRecipe);
-    this.setState({name: "", ingredients: ""});
-  }
-  handleCancel() {
-    const onAddModal = this.props.onAddModal;
-    this.setState({name: "", ingredients: ""});
-    onAddModal();
-  }
+
   render() {
+    // let currentlyEditing = this.props.currentlyEditing;
     const onShow = this.props.onShow;
-    var regex1 = /^\S/;
-    var regex2 = /^[^,\s]/;
-	  var regex3 = /[^,\s]$/;
-    const validRecipe = regex1.test(this.state.name) && regex2.test(this.state.ingredients) && regex3.test(this.state.ingredients);
+    const emp = (this.props.employee ? this.props.employee : {});
+
     return(
       <Modal show={onShow} onHide={this.handleCancel}>
+
         <Modal.Header closeButton>
-          <Modal.Title>New Recipe</Modal.Title>
+          <Modal.Title>Edit Employee</Modal.Title>
+          <Modal.Title>{emp.name}</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
-          <FormGroup controlId="formControlsName">
-            <ControlLabel>Recipe Name</ControlLabel>
-            <FormControl type="text" required onChange={this.handleRecipeNameChange} value={this.state.name} placeholder="Enter Name" />
-          </FormGroup>
-          <FormGroup controlId="formControlsIngredients">
-            <ControlLabel>Recipe Ingredients</ControlLabel>
-            <FormControl componentClass="textarea" type="text" required onChange={this.handleRecipeIngredientsChange} value={this.state.ingredients} placeholder="Enter Ingredients(separate by commas)" />
-          </FormGroup>
+
+           <FormGroup controlId="formControlsName">
+             <ControlLabel>Department:</ControlLabel>
+             <FormControl name="department" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Department} placeholder="Department" />
+           </FormGroup>
+
+           <FormGroup controlId="formControlsName">
+             <ControlLabel>Supervisor</ControlLabel>
+             <FormControl name="supervisor" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Supervisor} placeholder="Supervisor" />
+           </FormGroup>
+
+           <FormGroup controlId="formControlsName">
+             <ControlLabel>Email</ControlLabel>
+             <FormControl name="email" type="text" required onChange={this.handleEmployeeHasBeenEdited}  defaultValue={emp.Email} placeholder={emp.Email} />
+           </FormGroup> 
+
+           <FormGroup controlId="formControlsName">
+             <ControlLabel>Phone Ext:</ControlLabel>
+             <FormControl name="phone" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Phone} placeholder={emp.Phone} />             
+           </FormGroup> 
+
         </Modal.Body>
+
         <Modal.Footer>
-          <Button disabled={!validRecipe} bsStyle="success" onClick={this.handleSubmit}>Save Recipe</Button>
+          <Button bsStyle="success" onClick={this.sendFetchOfEdits}>Save</Button>
         </Modal.Footer>
+   
       </Modal>
     );
   }

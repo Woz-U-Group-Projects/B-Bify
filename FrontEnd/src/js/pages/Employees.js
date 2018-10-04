@@ -16,7 +16,7 @@ export default class Employees extends React.Component {
     };
 
     console.log(this.state.employees);
-    
+    this.showAddModal = this.showAddModal.bind(this);
     this.showEditModal = this.showEditModal.bind(this);
     this.editEmployee = this.editEmployee.bind(this);
     this.deleteEmployee = this.deleteEmployee.bind(this);
@@ -32,12 +32,12 @@ export default class Employees extends React.Component {
     .then(results => this.setState({employees : results}));
   }                  
 
-  // showAddModal() {//show the new Employee Detail modal
-  //   this.setState({showAdd: !this.state.showAdd});
-  // }
+  showAddModal() {//show the new Employee Detail modal
+    this.setState({curentlyEditing : -1, addOrEditLabel: 'Add', showEdit: !this.state.showEdit});
+  }
 
   showEditModal(index) {//show the edit Employee Modal
-    this.setState({currentlyEditing: index, showEdit: !this.state.showEdit});
+    this.setState({currentlyEditing: index, addOrEditLabel: 'Edit', showEdit: !this.state.showEdit});
   }
 
   // 
@@ -118,7 +118,7 @@ export default class Employees extends React.Component {
 
         <Button bsStyle="primary" onClick={this.showEditModal}>Add Employee</Button>
 
-        <AddEmployee onShow={this.state.showAdd} onAdd={this.AddEmployee} onAddModal={this.showAddModal} />
+        {/* <AddEmployee onShow={this.state.showAdd} onAdd={this.AddEmployee} onAddModal={this.showAddModal} /> */}
 
       </div>
 

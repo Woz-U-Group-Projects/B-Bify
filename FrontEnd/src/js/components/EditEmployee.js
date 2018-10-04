@@ -32,6 +32,7 @@ export class EditEmployee extends React.Component {
   }
 
   render() {
+    let addOrEditLabel = this.props.addOrEditLabel;
     // let currentlyEditing = this.props.currentlyEditing;
     const onShow = this.props.onShow;
     const emp = (this.props.employee ? this.props.employee : {});
@@ -40,7 +41,7 @@ export class EditEmployee extends React.Component {
       <Modal show={onShow} onHide={this.handleCancel}>
 
         <Modal.Header closeButton>
-          <Modal.Title>Edit Employee</Modal.Title>
+          <Modal.Title>{addOrEditLabel}</Modal.Title>
           <Modal.Title>{emp.name}</Modal.Title>
         </Modal.Header>
 
