@@ -6,75 +6,72 @@ import {Modal,ControlLabel,FormGroup,FormControl,Button} from 'react-bootstrap';
 export class EditEmployee extends React.Component {
   constructor(props) {//create a state to handle the employee to be edited
     super(props);
-    this.state = {
-      items: [],
-      edits: [],
-      value: [],    
-    };
-    
+        
     this.handleEmployeeHasBeenEdited = this.handleEmployeeHasBeenEdited.bind(this);
-    this.testFetch = this.testFetch.bind(this);
+    this.sendFetchOfEdits = this.sendFetchOfEdits.bind(this);
   }
 
   handleEmployeeHasBeenEdited(e) {  // change the name to reflect user input
-    this.setState({edits: e.target.value});  // compile value from the input field
+    this.setState({[e.target.name]: e.target.value});  // compile value from the input field
   }
 
-  testFetch () {
-    let edits = this.state.edits;
-    console.log(edits);
-    let url = 'http://localhost:5000/api/employees/' + (edits);
+  sendFetchOfEdits()  {
+    console.log(this.props);
+    console.log(this.state);
+      
+    let url = 'http://localhost:5000/api/employees/' + (this.props.employee.employeeId);
     fetch(url, {
-      method: 'PUT'
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+      body: JSON.stringify(this.state)
     })
+    .then(response => console.log('Success:', response))
+    .catch(error => console.error('Error:', error));
   }
 
   render() {
-    let currentlyEditing = this.props.currentlyEditing;
-
+    // let currentlyEditing = this.props.currentlyEditing;
     const onShow = this.props.onShow;
+    const emp = (this.props.employee ? this.props.employee : {});
 
     return(
       <Modal show={onShow} onHide={this.handleCancel}>
 
         <Modal.Header closeButton>
           <Modal.Title>Edit Employee</Modal.Title>
-          <Modal.Title>{this.props.items[currentlyEditing].name}</Modal.Title>
+          <Modal.Title>{emp.name}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
 
            <FormGroup controlId="formControlsName">
              <ControlLabel>Department:</ControlLabel>
-             <FormControl type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={this.state.value} placeholder={this.props.items[currentlyEditing].department} />
-             <ControlLabel>{this.state.edits}</ControlLabel>
+             <FormControl name="department" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Department} placeholder="Department" />
            </FormGroup>
 
            <FormGroup controlId="formControlsName">
              <ControlLabel>Supervisor</ControlLabel>
-             <FormControl type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={this.state.value} placeholder={this.props.items[currentlyEditing].supervisor} />
-             <ControlLabel>{this.state.edits}</ControlLabel>
+             <FormControl name="supervisor" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Supervisor} placeholder="Supervisor" />
            </FormGroup>
 
            <FormGroup controlId="formControlsName">
              <ControlLabel>Email</ControlLabel>
-             <FormControl type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={this.state.value} placeholder={this.props.items[currentlyEditing].email} />
-             <ControlLabel>{this.state.edits}</ControlLabel>
+             <FormControl name="email" type="text" required onChange={this.handleEmployeeHasBeenEdited}  defaultValue={emp.Email} placeholder={emp.Email} />
            </FormGroup> 
 
            <FormGroup controlId="formControlsName">
              <ControlLabel>Phone Ext:</ControlLabel>
-             <FormControl type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={this.state.value} placeholder={this.props.items[currentlyEditing].phone} />
-             <ControlLabel>{this.state.edits}</ControlLabel>
+             <FormControl name="phone" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Phone} placeholder={emp.Phone} />             
            </FormGroup> 
 
         </Modal.Body>
 
         <Modal.Footer>
-          <Button bsStyle="success" onClick={this.handleEmployeeHasBeenEdited}>Save</Button>
-          <Button bsStyle="success" onClick={this.testFetch}>Fetch</Button>
+          <Button bsStyle="success" onClick={this.sendFetchOfEdits}>Save</Button>
         </Modal.Footer>
-
+   
       </Modal>
     );
   }

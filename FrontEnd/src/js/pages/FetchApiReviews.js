@@ -12,8 +12,7 @@ export default class FetchApiReviews extends React.Component {
         this.getItems();
     }
 
-    getItems() {
-                        
+    getItems() {   
         fetch('http://localhost:5000/api/reviews')
         .then(results => results.json())
         .then(results => this.setState({items : results}));
