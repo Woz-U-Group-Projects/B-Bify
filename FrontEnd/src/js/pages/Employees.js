@@ -18,7 +18,7 @@ export default class Employees extends React.Component {
     console.log(this.state.employees);
     this.showAddModal = this.showAddModal.bind(this);
     this.showEditModal = this.showEditModal.bind(this);
-    this.editEmployee = this.editEmployee.bind(this);
+    this.cancelModal = this.cancelModal.bind(this);
     this.deleteEmployee = this.deleteEmployee.bind(this);
   }
 
@@ -33,18 +33,15 @@ export default class Employees extends React.Component {
   }                  
 
   showAddModal() {//show the new Employee Detail modal
-    this.setState({curentlyEditing : -1, addOrEditLabel: 'Add', showEdit: !this.state.showEdit});
+    this.setState({currentlyEditing : -1, showEdit: !this.state.showEdit});
   }
 
   showEditModal(index) {//show the edit Employee Modal
     this.setState({currentlyEditing: index, addOrEditLabel: 'Edit', showEdit: !this.state.showEdit});
   }
 
-  // 
-  
-
-  editEmployee(currentlyEditing) {//edit an existing employee
-    this.showEditModal(currentlyEditing);
+  cancelModal() {
+    this.setState({showEdit: false});
   }
 
   deleteEmployee(index) {//delete an existing Employee
@@ -112,11 +109,11 @@ export default class Employees extends React.Component {
             </Panel>
           ))}
 
-          <EditEmployee onShow={this.state.showEdit} employee={this.state.employees[this.state.currentlyEditing]} />
+          <EditEmployee onShow={this.state.showEdit} onCancel={this.cancelModal} employee={(this.state.currentlyEditing > -1 ? this.state.employees[this.state.currentlyEditing] : null)} />
           {/* <EditEmployee onShow={this.state.showEdit} onEdit={this.editEmployee} onEditModal={() => {this.showEditModal(currentlyEditing)}} employee={this.state.items[this.state.currentlyEditing]} /> */}
         </PanelGroup>
 
-        <Button bsStyle="primary" onClick={this.showEditModal}>Add Employee</Button>
+        <Button bsStyle="primary" onClick={this.showAddModal}>Add Employee</Button>
 
         {/* <AddEmployee onShow={this.state.showAdd} onAdd={this.AddEmployee} onAddModal={this.showAddModal} /> */}
 

@@ -6,7 +6,7 @@ import {Modal,ControlLabel,FormGroup,FormControl,Button} from 'react-bootstrap';
 export class EditEmployee extends React.Component {
   constructor(props) {//create a state to handle the employee to be edited
     super(props);
-        
+
     this.handleEmployeeHasBeenEdited = this.handleEmployeeHasBeenEdited.bind(this);
     this.sendFetchOfEdits = this.sendFetchOfEdits.bind(this);
   }
@@ -18,10 +18,11 @@ export class EditEmployee extends React.Component {
   sendFetchOfEdits()  {
     console.log(this.props);
     console.log(this.state);
-      
-    let url = 'http://localhost:5000/api/employees/' + (this.props.employee.employeeId);
+    
+    //URL will be PUT /api/employees/{id} for edits or POST /api/employees for adding
+    let url = 'http://localhost:5000/api/employees/' + (this.props.employee ? this.props.employee.employeeId : '');
     fetch(url, {
-      method: 'PUT',
+      method: (this.props.employee ? 'PUT' : 'POST'),
       headers: {
         'Content-Type': 'application/json', 
       },
@@ -38,15 +39,21 @@ export class EditEmployee extends React.Component {
     const emp = (this.props.employee ? this.props.employee : {});
 
     return(
-      <Modal show={onShow} onHide={this.handleCancel}>
+      <Modal show={onShow} onHide={this.props.onCancel}>
 
         <Modal.Header closeButton>
-          <Modal.Title>{addOrEditLabel}</Modal.Title>
-          <Modal.Title>{emp.name}</Modal.Title>
+          <Modal.Title>{(emp.name ? emp.name : "Add New Employee")}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
 
+          {(!emp.name ? (
+            <FormGroup controlId="formControlsName">
+              <ControlLabel>Name:</ControlLabel>
+              <FormControl name="name" type="text" required onChange={this.handleEmployeeHasBeenEdited} placeholder="Name" />
+            </FormGroup>
+          ) : "")}
+          
            <FormGroup controlId="formControlsName">
              <ControlLabel>Department:</ControlLabel>
              <FormControl name="department" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Department} placeholder="Department" />
