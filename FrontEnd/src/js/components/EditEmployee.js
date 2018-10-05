@@ -53,33 +53,33 @@ export class EditEmployee extends React.Component {
           {(!emp.name ? (
             <FormGroup controlId="formControlsName">
               <ControlLabel>Name:</ControlLabel>
-              <FormControl name="name" type="text" required onChange={this.handleEmployeeHasBeenEdited} placeholder="Name" />
+              <FormControl name="name" type="text" required onChange={this.handleEmployeeHasBeenEdited} placeholder={emp.email} />
             </FormGroup>
           ) : "")}
           
             <FormGroup controlId="formControlsName">
               <ControlLabel>Department:</ControlLabel>
-              <FormControl name="department" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Department} placeholder='Department' />
+              <FormControl name="department" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.department} />
             </FormGroup>
 
             <FormGroup controlId="formControlsName">
               <ControlLabel>Supervisor</ControlLabel>
-              <FormControl name="supervisor" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Supervisor} placeholder='Supervisor' />
+              <FormControl name="supervisor" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.supervisor} />
             </FormGroup>
 
             <FormGroup controlId="formControlsName">
               <ControlLabel>Email</ControlLabel>
-              <FormControl name="email" type="text" required onChange={this.handleEmployeeHasBeenEdited}  defaultValue={emp.Email} placeholder={emp.Email} />
+              <FormControl name="email" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.email} />
             </FormGroup> 
 
             <FormGroup controlId="formControlsName">
               <ControlLabel>Phone Ext:</ControlLabel>
-              <FormControl name="phone" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Phone} placeholder={emp.Phone} />             
+              <FormControl name="phone" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.phone} />             
             </FormGroup> 
 
             <FormGroup controlId="formControlsName">
               <ControlLabel>Healthcare Plan:</ControlLabel>
-              <FormControl name="phone" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.PlanName} placeholder='testing' />             
+              <FormControl name="phone" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.planId} />             
             </FormGroup> 
 
             
