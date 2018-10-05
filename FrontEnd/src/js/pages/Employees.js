@@ -1,10 +1,11 @@
 //import the necessary files
 import React from 'react';
-import {PanelGroup,Panel,Button,ButtonToolbar,ListGroup,ListGroupItem} from 'react-bootstrap';
+import {PanelGroup,Panel,Button,ButtonToolbar,ListGroup,ListGroupItem,DropdownButton,MenuItem} from 'react-bootstrap';
 import {Redirect} from 'react-router';
 import '../css/index.css';
 import {AddEmployee} from '../components/addemployee';
 import {EditEmployee} from '../components/editemployee';
+
 
 //create the main class for displaying the recipes
 export default class Employees extends React.Component {
@@ -12,6 +13,7 @@ export default class Employees extends React.Component {
     super(props);
     this.state = {
       employees: [],
+      title: 'Hello Ed',
       showEdit: false,
     };
 
@@ -110,9 +112,11 @@ export default class Employees extends React.Component {
           ))}
 
           <EditEmployee onShow={this.state.showEdit} onCancel={this.cancelModal} employee={(this.state.currentlyEditing > -1 ? this.state.employees[this.state.currentlyEditing] : null)} />
-          {/* <EditEmployee onShow={this.state.showEdit} onEdit={this.editEmployee} onEditModal={() => {this.showEditModal(currentlyEditing)}} employee={this.state.items[this.state.currentlyEditing]} /> */}
-        </PanelGroup>
+          
+          
 
+        </PanelGroup>
+        
         <Button bsStyle="primary" onClick={this.showAddModal}>Add Employee</Button>
 
         {/* <AddEmployee onShow={this.state.showAdd} onAdd={this.AddEmployee} onAddModal={this.showAddModal} /> */}

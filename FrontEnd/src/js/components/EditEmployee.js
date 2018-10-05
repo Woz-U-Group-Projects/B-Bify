@@ -1,6 +1,7 @@
 //import the necessary files
 import React from 'react';
 import {Modal,ControlLabel,FormGroup,FormControl,Button} from 'react-bootstrap';
+import {ChoosePlan} from '../components/chooseplan';
 
 //create a class for displaying the modal for editing an existing employee and export it
 export class EditEmployee extends React.Component {
@@ -23,6 +24,7 @@ export class EditEmployee extends React.Component {
     let url = 'http://localhost:5000/api/employees/' + (this.props.employee ? this.props.employee.employeeId : '');
     fetch(url, {
       method: (this.props.employee ? 'PUT' : 'POST'),
+      // mode: "no-cors",
       headers: {
         'Content-Type': 'application/json', 
       },
@@ -33,7 +35,7 @@ export class EditEmployee extends React.Component {
   }
 
   render() {
-    let addOrEditLabel = this.props.addOrEditLabel;
+    // let addOrEditLabel = this.props.addOrEditLabel;
     // let currentlyEditing = this.props.currentlyEditing;
     const onShow = this.props.onShow;
     const emp = (this.props.employee ? this.props.employee : {});
@@ -74,12 +76,15 @@ export class EditEmployee extends React.Component {
              <FormControl name="phone" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Phone} placeholder={emp.Phone} />             
            </FormGroup> 
 
+            <ChoosePlan employee = {this.props.employee}/>
+
         </Modal.Body>
 
         <Modal.Footer>
           <Button bsStyle="success" onClick={this.sendFetchOfEdits}>Save</Button>
         </Modal.Footer>
-   
+
+           
       </Modal>
     );
   }
