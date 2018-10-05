@@ -22,7 +22,7 @@ export class ChoosePlan extends React.Component {
                 //   key={i}
                 //   id={`dropdown-basic-${i}`}
                 >
-                <MenuItem eventKey="1">{this.props.employee.planName}</MenuItem>
+                <MenuItem eventKey="1">Action</MenuItem>
                 <MenuItem eventKey="2">Another action</MenuItem>
                 <MenuItem eventKey="3" active>
                     Active Item

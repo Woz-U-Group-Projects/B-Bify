@@ -98,7 +98,7 @@ export default class Employees extends React.Component {
                       <ListGroupItem key={(index + 2)}>Supervisor: {item.supervisor}</ListGroupItem>
                       <ListGroupItem key={(index + 3)}>Email: {item.email}</ListGroupItem>
                       <ListGroupItem key={(index + 4)}>Phone Ext: x{item.phone}</ListGroupItem>
-                      <ListGroupItem key={(index + 5)}>{index}</ListGroupItem>
+                      {/* <ListGroupItem key={(index + 5)}>{index}</ListGroupItem> */}
                   </ListGroup>
 
                   <ButtonToolbar>

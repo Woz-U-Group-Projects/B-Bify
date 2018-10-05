@@ -1,6 +1,6 @@
 //import the necessary files
 import React from 'react';
-import {Modal,ControlLabel,FormGroup,FormControl,Button} from 'react-bootstrap';
+import {Modal,ControlLabel,FormGroup,FormControl,Button,DropdownButton,MenuItem} from 'react-bootstrap';
 import {ChoosePlan} from '../components/chooseplan';
 
 //create a class for displaying the modal for editing an existing employee and export it
@@ -32,8 +32,9 @@ export class EditEmployee extends React.Component {
     })
     .then(response => console.log('Success:', response))
     .catch(error => console.error('Error:', error));
+    
   }
-
+    
   render() {
     // let addOrEditLabel = this.props.addOrEditLabel;
     // let currentlyEditing = this.props.currentlyEditing;
@@ -41,7 +42,7 @@ export class EditEmployee extends React.Component {
     const emp = (this.props.employee ? this.props.employee : {});
 
     return(
-      <Modal show={onShow} onHide={this.props.onCancel}>
+      <Modal id='defaultId' show={onShow} onHide={this.props.onCancel}>
 
         <Modal.Header closeButton>
           <Modal.Title>{(emp.name ? emp.name : "Add New Employee")}</Modal.Title>
@@ -56,27 +57,49 @@ export class EditEmployee extends React.Component {
             </FormGroup>
           ) : "")}
           
-           <FormGroup controlId="formControlsName">
-             <ControlLabel>Department:</ControlLabel>
-             <FormControl name="department" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Department} placeholder="Department" />
-           </FormGroup>
+            <FormGroup controlId="formControlsName">
+              <ControlLabel>Department:</ControlLabel>
+              <FormControl name="department" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Department} placeholder='Department' />
+            </FormGroup>
 
-           <FormGroup controlId="formControlsName">
-             <ControlLabel>Supervisor</ControlLabel>
-             <FormControl name="supervisor" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Supervisor} placeholder="Supervisor" />
-           </FormGroup>
+            <FormGroup controlId="formControlsName">
+              <ControlLabel>Supervisor</ControlLabel>
+              <FormControl name="supervisor" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Supervisor} placeholder='Supervisor' />
+            </FormGroup>
 
-           <FormGroup controlId="formControlsName">
-             <ControlLabel>Email</ControlLabel>
-             <FormControl name="email" type="text" required onChange={this.handleEmployeeHasBeenEdited}  defaultValue={emp.Email} placeholder={emp.Email} />
-           </FormGroup> 
+            <FormGroup controlId="formControlsName">
+              <ControlLabel>Email</ControlLabel>
+              <FormControl name="email" type="text" required onChange={this.handleEmployeeHasBeenEdited}  defaultValue={emp.Email} placeholder={emp.Email} />
+            </FormGroup> 
 
-           <FormGroup controlId="formControlsName">
-             <ControlLabel>Phone Ext:</ControlLabel>
-             <FormControl name="phone" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Phone} placeholder={emp.Phone} />             
-           </FormGroup> 
+            <FormGroup controlId="formControlsName">
+              <ControlLabel>Phone Ext:</ControlLabel>
+              <FormControl name="phone" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.Phone} placeholder={emp.Phone} />             
+            </FormGroup> 
 
-            <ChoosePlan employee = {this.props.employee}/>
+            <FormGroup controlId="formControlsName">
+              <ControlLabel>Healthcare Plan:</ControlLabel>
+              <FormControl name="phone" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.PlanName} placeholder='testing' />             
+            </FormGroup> 
+
+            
+
+            {/* <ChoosePlan employee = {this.props.employee}/> */}
+
+            <DropdownButton
+                  // bsStyle={title.toLowerCase()}
+                  title="Choose Plan"
+                  // key={i}
+                  id='id' 
+                >
+                <MenuItem eventKey="1">Action</MenuItem>
+                <MenuItem eventKey="2">Another action</MenuItem>
+                <MenuItem eventKey="3" active>
+                    Active Item
+                </MenuItem>
+                <MenuItem divider />
+                <MenuItem eventKey="4">Separated link</MenuItem>
+            </DropdownButton>
 
         </Modal.Body>
 
