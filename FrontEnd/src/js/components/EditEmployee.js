@@ -10,16 +10,24 @@ export class EditEmployee extends React.Component {
 
     this.handleEmployeeHasBeenEdited = this.handleEmployeeHasBeenEdited.bind(this);
     this.sendFetchOfEdits = this.sendFetchOfEdits.bind(this);
+    // this.menuItemEmployeeHasBeenEdited = this.menuItemEmployeeHasBeenEdited.bind(this);
   }
 
   handleEmployeeHasBeenEdited(e) {  // change the name to reflect user input
     this.setState({[e.target.name]: e.target.value});  // compile value from the input field
   }
+  
+  menuItemEmployeeHasBeenEdited(ev) {
+    console.log({ev});
+  }
+
 
   sendFetchOfEdits()  {
     console.log(this.props);
-    console.log(this.state);
+    console.log(this.props.healthcareplan);
     
+    return;
+
     //URL will be PUT /api/employees/{id} for edits or POST /api/employees for adding
     let url = 'http://localhost:5000/api/employees/' + (this.props.employee ? this.props.employee.employeeId : '');
     fetch(url, {
@@ -32,9 +40,10 @@ export class EditEmployee extends React.Component {
     })
     .then(response => console.log('Success:', response))
     .catch(error => console.error('Error:', error));
-    
   }
     
+  
+
   render() {
     // let addOrEditLabel = this.props.addOrEditLabel;
     // let currentlyEditing = this.props.currentlyEditing;
@@ -79,7 +88,7 @@ export class EditEmployee extends React.Component {
 
             <FormGroup controlId="formControlsName">
               <ControlLabel>Healthcare Plan:</ControlLabel>
-              <FormControl name="phone" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.planId} />             
+              <FormControl name="planname" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.planname} />             
             </FormGroup> 
 
             
@@ -87,26 +96,23 @@ export class EditEmployee extends React.Component {
             {/* <ChoosePlan employee = {this.props.employee}/> */}
 
             <DropdownButton
-                  // bsStyle={title.toLowerCase()}
+                  
                   title="Choose Plan"
-                  // key={i}
                   id='id' 
                 >
-                <MenuItem eventKey="1">Action</MenuItem>
-                <MenuItem eventKey="2">Another action</MenuItem>
-                <MenuItem eventKey="3" active>
-                    Active Item
-                </MenuItem>
-                <MenuItem divider />
-                <MenuItem eventKey="4">Separated link</MenuItem>
+                <MenuItem eventKey="1" name="healthcareplan" onSubmit={this.handleEmployeeHasBeenEdited}>SuperMega Health</MenuItem>
+                <MenuItem eventKey="2" name="healthcareplan" onSubmit={this.handleEmployeeHasBeenEdited}>Health-O-Rama</MenuItem>
+                <MenuItem eventKey="3" name="healthcareplan" onSubmit={this.handleEmployeeHasBeenEdited}>Ultra Health Green</MenuItem>
+                <MenuItem eventKey="4" name="healthcareplan" onSubmit={this.handleEmployeeHasBeenEdited}>Health One</MenuItem>
+                
             </DropdownButton>
 
         </Modal.Body>
 
         <Modal.Footer>
           <Button bsStyle="success" onClick={this.sendFetchOfEdits}>Save</Button>
+         
         </Modal.Footer>
-
            
       </Modal>
     );
