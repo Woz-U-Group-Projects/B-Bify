@@ -9,25 +9,23 @@ export class EditEmployee extends React.Component {
     super(props);
 
     this.handleEmployeeHasBeenEdited = this.handleEmployeeHasBeenEdited.bind(this);
+    this.handlePlanHasBeenChosen = this.handlePlanHasBeenChosen.bind(this);
     this.sendFetchOfEdits = this.sendFetchOfEdits.bind(this);
-    // this.menuItemEmployeeHasBeenEdited = this.menuItemEmployeeHasBeenEdited.bind(this);
   }
 
   handleEmployeeHasBeenEdited(e) {  // change the name to reflect user input
     this.setState({[e.target.name]: e.target.value});  // compile value from the input field
   }
-  
-  menuItemEmployeeHasBeenEdited(ev) {
-    console.log({ev});
+
+  handlePlanHasBeenChosen(evt) {
+    console.log(evt);
+    this.setState({planId : evt}); 
   }
-
-
+ 
   sendFetchOfEdits()  {
     console.log(this.props);
-    console.log(this.props.healthcareplan);
+    console.log(this.state);
     
-    return;
-
     //URL will be PUT /api/employees/{id} for edits or POST /api/employees for adding
     let url = 'http://localhost:5000/api/employees/' + (this.props.employee ? this.props.employee.employeeId : '');
     fetch(url, {
@@ -42,8 +40,6 @@ export class EditEmployee extends React.Component {
     .catch(error => console.error('Error:', error));
   }
     
-  
-
   render() {
     // let addOrEditLabel = this.props.addOrEditLabel;
     // let currentlyEditing = this.props.currentlyEditing;
@@ -88,22 +84,18 @@ export class EditEmployee extends React.Component {
 
             <FormGroup controlId="formControlsName">
               <ControlLabel>Healthcare Plan:</ControlLabel>
-              <FormControl name="planname" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.planname} />             
+              <FormControl name="planname" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.planName} />             
             </FormGroup> 
-
-            
-
-            {/* <ChoosePlan employee = {this.props.employee}/> */}
 
             <DropdownButton
                   
-                  title="Choose Plan"
-                  id='id' 
+                  title = "Choose Plan"
+                  id = "id"
                 >
-                <MenuItem eventKey="1" name="healthcareplan" onSubmit={this.handleEmployeeHasBeenEdited}>SuperMega Health</MenuItem>
-                <MenuItem eventKey="2" name="healthcareplan" onSubmit={this.handleEmployeeHasBeenEdited}>Health-O-Rama</MenuItem>
-                <MenuItem eventKey="3" name="healthcareplan" onSubmit={this.handleEmployeeHasBeenEdited}>Ultra Health Green</MenuItem>
-                <MenuItem eventKey="4" name="healthcareplan" onSubmit={this.handleEmployeeHasBeenEdited}>Health One</MenuItem>
+                <MenuItem eventKey="1" onSelect={this.handlePlanHasBeenChosen}>SuperMega Health</MenuItem>
+                <MenuItem eventKey="2" onSelect={this.handlePlanHasBeenChosen}>Health-O-Rama</MenuItem>
+                <MenuItem eventKey="3" onSelect={this.handlePlanHasBeenChosen}>Ultra Health Green</MenuItem>
+                <MenuItem eventKey="4" onSelect={this.handlePlanHasBeenChosen}>Health One</MenuItem>
                 
             </DropdownButton>
 
@@ -117,4 +109,4 @@ export class EditEmployee extends React.Component {
       </Modal>
     );
   }
-};
+}
