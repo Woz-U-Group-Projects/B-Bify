@@ -1,15 +1,8 @@
 import React from "react";
-import { Link } from "react-router";
-
-import Nav from "../components/layout/Nav";
+// import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
-import Button from "../components/Button";
 
 export default class Layout extends React.Component {
-  
-  // selectEmployee(e) {
-  //   console.log("from selectEmployee");
-  // }
 
   render() {
     const { location } = this.props;
@@ -19,24 +12,21 @@ export default class Layout extends React.Component {
     
     return (
      
-        <div>
+        <div>        
 
-        {/* // <form className="container-fluid" onSubmit={this.handleFormSubmit}>  */}
-
-        <Nav location={location} />
+        {/* <Nav location={location} /> */}
 
           <div class="container" style={containerStyle}>
             <div class="row">
               <div class="col-lg-12">
 
-                <h1>Shields Industries</h1>
+                <h1>HR Squared</h1>
+                <h3>Your best choice for HR software</h3>
                 
                 <h1>{this.props.children}</h1>
                               
               </div>
             </div>
-
-            
 
             <Footer/>
 

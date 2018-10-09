@@ -1,7 +1,7 @@
 //import the necessary files
 import React from 'react';
 import {Modal,ControlLabel,FormGroup,FormControl,Button,DropdownButton,MenuItem} from 'react-bootstrap';
-import {ChoosePlan} from '../components/chooseplan';
+
 
 //create a class for displaying the modal for editing an existing employee and export it
 export class EditEmployee extends React.Component {
@@ -18,13 +18,13 @@ export class EditEmployee extends React.Component {
   }
 
   handlePlanHasBeenChosen(evt) {
-    console.log(evt);
+    console.log("evt", evt);
     this.setState({planId : evt}); 
   }
- 
+  
   sendFetchOfEdits()  {
-    console.log(this.props);
-    console.log(this.state);
+    console.log("this.props", this.props);
+    console.log("this.state", this.state);
     
     //URL will be PUT /api/employees/{id} for edits or POST /api/employees for adding
     let url = 'http://localhost:5000/api/employees/' + (this.props.employee ? this.props.employee.employeeId : '');
@@ -45,7 +45,12 @@ export class EditEmployee extends React.Component {
     // let currentlyEditing = this.props.currentlyEditing;
     const onShow = this.props.onShow;
     const emp = (this.props.employee ? this.props.employee : {});
-
+    let pln = {};
+    if (this.props.employee) {
+      pln = (this.props.employee.plan ? this.props.employee.plan : {});
+    }
+    
+ 
     return(
       <Modal id='defaultId' show={onShow} onHide={this.props.onCancel}>
 
@@ -84,7 +89,7 @@ export class EditEmployee extends React.Component {
 
             <FormGroup controlId="formControlsName">
               <ControlLabel>Healthcare Plan:</ControlLabel>
-              <FormControl name="planname" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={emp.planName} />             
+              <FormControl name="planname" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={pln.planName} />             
             </FormGroup> 
 
             <DropdownButton

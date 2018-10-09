@@ -16,8 +16,7 @@ export default class Employees extends React.Component {
       title: 'Hello Ed',
       showEdit: false,
     };
-
-    console.log(this.state.employees);
+    
     this.showAddModal = this.showAddModal.bind(this);
     this.showEditModal = this.showEditModal.bind(this);
     this.cancelModal = this.cancelModal.bind(this);
@@ -27,11 +26,15 @@ export default class Employees extends React.Component {
   componentDidMount() {
     this.getItems();
   }
-  
+
   getItems() {     
+    console.log("Starting Fetch");
     fetch('http://localhost:5000/api/employees')
     .then(results => results.json())
-    .then(results => this.setState({employees : results}));
+    .then(results => {
+      console.log("Done", results);
+      this.setState({employees : results});
+    })
   }                  
 
   showAddModal() {//show the new Employee Detail modal
@@ -67,6 +70,8 @@ export default class Employees extends React.Component {
     const employees = this.state.employees;
     var currentlyEditing = this.state.currentlyEditing;
     var rerenderEmployeeView = this.state.rerenderEmployeeView;
+
+    console.log(employees);
 
     if (rerenderEmployeeView === true) {
       <Redirect to='/bookings' />
@@ -113,8 +118,6 @@ export default class Employees extends React.Component {
 
           <EditEmployee onShow={this.state.showEdit} onCancel={this.cancelModal} employee={(this.state.currentlyEditing > -1 ? this.state.employees[this.state.currentlyEditing] : null)} />
           
-          
-
         </PanelGroup>
         
         <Button bsStyle="primary" onClick={this.showAddModal}>Add Employee</Button>
