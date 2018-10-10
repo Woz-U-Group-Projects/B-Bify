@@ -8,48 +8,42 @@ export class EditEmployee extends React.Component {
   constructor(props) {//create a state to handle the employee to be edited
     super(props);
 
+    this.state = {
+      planId: 1
+    };
+
     this.handleEmployeeHasBeenEdited = this.handleEmployeeHasBeenEdited.bind(this);
-    this.handlePlanHasBeenChosen = this.handlePlanHasBeenChosen.bind(this);
     this.sendFetchOfEdits = this.sendFetchOfEdits.bind(this);
   }
 
   handleEmployeeHasBeenEdited(e) {  // change the name to reflect user input
     this.setState({[e.target.name]: e.target.value});  // compile value from the input field
   }
-
-  handlePlanHasBeenChosen(evt) {
-    console.log("evt", evt);
-    this.setState({planId : evt}); 
-  }
   
   sendFetchOfEdits()  {
-    console.log("this.props", this.props);
-    console.log("this.state", this.state);
-    
     //URL will be PUT /api/employees/{id} for edits or POST /api/employees for adding
     let url = 'http://localhost:5000/api/employees/' + (this.props.employee ? this.props.employee.employeeId : '');
     fetch(url, {
       method: (this.props.employee ? 'PUT' : 'POST'),
-      // mode: "no-cors",
       headers: {
         'Content-Type': 'application/json', 
       },
       body: JSON.stringify(this.state)
     })
-    .then(response => console.log('Success:', response))
+    .then(response => {
+      console.log('Success:', response)
+      location.reload();
+    })
     .catch(error => console.error('Error:', error));
   }
     
   render() {
-    // let addOrEditLabel = this.props.addOrEditLabel;
-    // let currentlyEditing = this.props.currentlyEditing;
     const onShow = this.props.onShow;
     const emp = (this.props.employee ? this.props.employee : {});
     let pln = {};
     if (this.props.employee) {
       pln = (this.props.employee.plan ? this.props.employee.plan : {});
     }
-    
  
     return(
       <Modal id='defaultId' show={onShow} onHide={this.props.onCancel}>
@@ -89,26 +83,18 @@ export class EditEmployee extends React.Component {
 
             <FormGroup controlId="formControlsName">
               <ControlLabel>Healthcare Plan:</ControlLabel>
-              <FormControl name="planname" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={pln.planName} />             
+              <FormControl componentClass="select"  name="planId" onChange={this.handleEmployeeHasBeenEdited}>
+                <option value="1"> SuperMega Health</option>
+                <option value="2">Health-O-Rama</option>
+                <option value="3">Ultra Health Green</option>
+                <option value="4">Health One</option>
+              </FormControl>
+              {/* <FormControl name="planname" type="text" required onChange={this.handleEmployeeHasBeenEdited} defaultValue={pln.planName} />              */}
             </FormGroup> 
-
-            <DropdownButton
-                  
-                  title = "Choose Plan"
-                  id = "id"
-                >
-                <MenuItem eventKey="1" onSelect={this.handlePlanHasBeenChosen}>SuperMega Health</MenuItem>
-                <MenuItem eventKey="2" onSelect={this.handlePlanHasBeenChosen}>Health-O-Rama</MenuItem>
-                <MenuItem eventKey="3" onSelect={this.handlePlanHasBeenChosen}>Ultra Health Green</MenuItem>
-                <MenuItem eventKey="4" onSelect={this.handlePlanHasBeenChosen}>Health One</MenuItem>
-                
-            </DropdownButton>
-
         </Modal.Body>
 
         <Modal.Footer>
           <Button bsStyle="success" onClick={this.sendFetchOfEdits}>Save</Button>
-         
         </Modal.Footer>
            
       </Modal>

@@ -3,9 +3,7 @@ import React from 'react';
 import {PanelGroup,Panel,Button,ButtonToolbar,ListGroup,ListGroupItem,DropdownButton,MenuItem} from 'react-bootstrap';
 import {Redirect} from 'react-router';
 import '../css/index.css';
-import {AddEmployee} from '../components/addemployee';
 import {EditEmployee} from '../components/editemployee';
-
 
 //create the main class for displaying the recipes
 export default class Employees extends React.Component {
@@ -13,7 +11,6 @@ export default class Employees extends React.Component {
     super(props);
     this.state = {
       employees: [],
-      title: 'Hello Ed',
       showEdit: false,
     };
     
@@ -28,53 +25,47 @@ export default class Employees extends React.Component {
   }
 
   getItems() {     
-    console.log("Starting Fetch");
     fetch('http://localhost:5000/api/employees')
     .then(results => results.json())
     .then(results => {
-      console.log("Done", results);
       this.setState({employees : results});
     })
   }                  
 
-  showAddModal() {//show the new Employee Detail modal
+  showAddModal() {//show the 'Add Employee' detail modal
     this.setState({currentlyEditing : -1, showEdit: !this.state.showEdit});
   }
 
-  showEditModal(index) {//show the edit Employee Modal
+  showEditModal(index) {//show the 'Edit Employee' detail modal
     this.setState({currentlyEditing: index, addOrEditLabel: 'Edit', showEdit: !this.state.showEdit});
   }
 
-  cancelModal() {
+  cancelModal() {//clear the modal when the 'X' button is pressed
     this.setState({showEdit: false});
   }
 
   deleteEmployee(index) {//delete an existing Employee
     let employees = this.state.employees;
     this.setState({rerenderEmployeeView: true});
-    console.log(this.state.rerenderEmployeeView);
-    console.log(employees[index].employeeId);
     let url = 'http://localhost:5000/api/employees/' + (employees[index].employeeId);
     fetch(url, {
       method: 'DELETE'
-    });
-
-    this.props.history.push('/bookings');
+    })
+    .then(response => {
+      console.log('Success:', response)
+      location.reload();
+    })
+    .catch(error => console.error('Error:', error));
+    // this.props.history.push('/reviews');
   }
-
-
-  // -----------------------------------------------------------------
-      
 
   render() {
     const employees = this.state.employees;
     var currentlyEditing = this.state.currentlyEditing;
     var rerenderEmployeeView = this.state.rerenderEmployeeView;
 
-    console.log(employees);
-
     if (rerenderEmployeeView === true) {
-      <Redirect to='/bookings' />
+      <Redirect to='/reviews' />
     };
 
     return(
@@ -90,10 +81,7 @@ export default class Employees extends React.Component {
             <Panel eventKey={index} key={index}>
             
               <Panel.Heading>
-
                   <Panel.Title className="title" toggle>{item.name}</Panel.Title>
-                  <Panel.Title toggle>{item.employeeId}</Panel.Title>
-
               </Panel.Heading>
               
               <Panel.Body collapsible>
@@ -103,7 +91,7 @@ export default class Employees extends React.Component {
                       <ListGroupItem key={(index + 2)}>Supervisor: {item.supervisor}</ListGroupItem>
                       <ListGroupItem key={(index + 3)}>Email: {item.email}</ListGroupItem>
                       <ListGroupItem key={(index + 4)}>Phone Ext: x{item.phone}</ListGroupItem>
-                      {/* <ListGroupItem key={(index + 5)}>{index}</ListGroupItem> */}
+                      <ListGroupItem key={(index + 5)}>Plan Name: {item.plan.planName}</ListGroupItem>
                   </ListGroup>
 
                   <ButtonToolbar>
@@ -121,9 +109,7 @@ export default class Employees extends React.Component {
         </PanelGroup>
         
         <Button bsStyle="primary" onClick={this.showAddModal}>Add Employee</Button>
-
-        {/* <AddEmployee onShow={this.state.showAdd} onAdd={this.AddEmployee} onAddModal={this.showAddModal} /> */}
-
+        
       </div>
 
     );    

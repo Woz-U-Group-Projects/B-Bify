@@ -1,5 +1,5 @@
 import React from "react";
-// import Nav from "../components/layout/Nav";
+import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 
 export default class Layout extends React.Component {
@@ -14,14 +14,14 @@ export default class Layout extends React.Component {
      
         <div>        
 
-        {/* <Nav location={location} /> */}
+        <Nav location={location} />
 
           <div class="container" style={containerStyle}>
             <div class="row">
               <div class="col-lg-12">
 
                 <h1>HR Squared</h1>
-                <h3>Your best choice for HR software</h3>
+                <h3>Thinking inside the box!</h3>
                 
                 <h1>{this.props.children}</h1>
                               
